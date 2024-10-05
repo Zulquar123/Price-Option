@@ -14,16 +14,22 @@ export default function Navbar() {
   ];
 
   return (
-    <nav>
+    <nav className="bg-sky-800 ">
       <div
         onClick={() => setopen(!open)}
-        className="md:hidden text-5xl font-bold"
+        className="md:hidden text-6xl font-bold "
       >
         {open ? <RxCross1 /> : <ImMenu />}
       </div>
-      <ul className="md:flex justify-center mt-5">
-        {routes.map((route) => (
-          <Link route={route} />
+      <ul
+        className={`md:flex  md:static shadow-lg absolute  bg-sky-700 p-5 rounded-xl ${
+          open ? "top-15 mt-1 p-10" : "-top-full"
+        }`}
+      >
+        {routes.map((route, index) => (
+          <li key={index}>
+            <Link route={route} />
+          </li>
         ))}
       </ul>
     </nav>
